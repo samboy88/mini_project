@@ -1,0 +1,55 @@
+---
+models:
+  - name: github_clean_src_events
+    desription: cleaned data from github events
+    columns:
+      - name: repo
+        description: Github Repository name
+        Data_type: VARCHAR
+
+      - name: ID
+        description: Source ID of events
+        Data_type: VARCHAR
+        tests:
+          - not_null
+          - unique
+
+      - name: type
+        description: Type of Event
+        Data_type: VARCHAR
+      
+      - name: user_id
+        description: Source user ID
+        Data_type: VARCHAR
+
+      - name: user_login
+        description: Source user login
+        Data_type: VARCHAR
+
+      - name: issue_number
+        description: Source Issue number
+        Data_type: VARCHAR
+
+      - name: action
+        description: Github action happened through this event
+        Data_type: VARCHAR
+
+      - name: pr_id
+        description: Source ID of PR
+        Data_type: VARCHAR
+
+      - name: pr_number
+        description: Source PR number in event
+        Data_type: VARCHAR
+
+      - name: created_at
+        description: Date when event is happened
+        Data_type: DATETIME
+
+      - name: _load_date
+        description: Audit field used to identify when records in loaded in DWH
+        Data_type: DATETIME
+
+      - name: _ingest_timestamp
+        description: Source Ingestion datetime
+        Data_type: DATETIME            

@@ -1,0 +1,7 @@
+mysql-connector-python
+sqlalchemy
+python-dotenv
+requests
+dbt-mysql
+dbt-core
+apache-airflow==2.7.1

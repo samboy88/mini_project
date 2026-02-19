@@ -1,0 +1,19 @@
+---
+models:
+  - name: dim_repo
+    desription: cleaned data from github events
+    columns:
+      - name: repo_id
+        description: Surrogate Key of the repository
+        Data_type: VARCHAR
+        tests:
+          - not_null
+          - unique
+
+      - name: source_repo_id
+        description: Source repository ID
+        Data_type: VARCHAR
+
+      - name: repo_name
+        description: Name of the repo
+             

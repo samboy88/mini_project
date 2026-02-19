@@ -1,0 +1,21 @@
+
+github_event_analysis:
+  target: dev
+  outputs:
+    dev:
+      type: mysql
+      server: host.docker.internal
+      port: 3307
+      schema: github_event_analysis
+      username: samboy_88
+      password: awesome_person
+      driver: mysqlconnector
+      database: github_event_analysis
+    prod:
+      type: mysql
+      server: host.docker.internal
+      port: 3307
+      username: samboy_88
+      password: awesome_person
+      driver: mysqlconnector
+      database: github_event_analysis

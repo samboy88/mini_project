@@ -1,0 +1,17 @@
+version: 2
+
+sources:
+  - name: raw
+    schema: github_event_analysis
+    description: "Raw GitHub event data ingested from the GitHub API"
+    tables:
+      - name: raw_core_events
+        description: "Unprocessed GitHub events stored as JSON"
+        columns:
+          - name: id
+            tests:
+              - not_null
+              - unique
+          - name: created_at
+            tests:
+              - not_null

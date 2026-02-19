@@ -1,0 +1,72 @@
+---
+models:
+  - name: github_clean_src_pull
+    desription: cleaned data from github events
+    columns:
+      - name: repo
+        description: Github Repository name
+        Data_type: VARCHAR
+
+      - name: ID
+        description: Source ID of events
+        Data_type: VARCHAR
+
+      - name: state
+        description: state of PR
+        Data_type: VARCHAR
+      
+      - name: is_draft
+        description: Set as True is PR is draft
+        Data_type: BOOL
+
+      - name: merged_at
+        description: date when PR is merged
+        Data_type: VARCHAR
+
+      - name: merge_commit_sha
+        description: Merge Commit hash key
+        Data_type: VARCHAR
+
+      - name: title
+        description: Title of the PR
+        Data_type: VARCHAR
+
+      - name: number
+        description: Source Number of PR
+        Data_type: VARCHAR
+
+      - name: author_id
+        description: Author user id
+        Data_type: VARCHAR
+
+      - name: author_login
+        description: Author user login
+        Data_type: VARCHAR
+
+      - name: assignee
+        description: Assignee of the PR
+        Data_type: VARCHAR
+
+      - name: closed_at
+        description: Date when PR is closed
+        Data_type: DATETIME
+      
+      - name: closed_by
+        description: User who closed this PR
+        Data_type: DATETIME
+
+      - name: created_at
+        description: Date when event is created
+        Data_type: DATETIME
+
+      - name: updated_at
+        description: Date when event is updated
+        Data_type: DATETIME
+
+      - name: _load_date
+        description: Audit field used to identify when records in loaded in DWH
+        Data_type: DATETIME
+
+      - name: _ingest_timestamp
+        description: Source Ingestion datetime
+        Data_type: DATETIME            

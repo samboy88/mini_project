@@ -1,0 +1,75 @@
+---
+models:
+  - name: dim_pull_request
+    desription: Table has list of Pull requests in a repository
+    columns:
+      - name: pull_request_id
+        description: Surrogate Key of the PR
+        Data_type: VARCHAR
+        tests:
+          - not_null
+          - unique
+
+      - name: repo_name
+        description: Name of the repository
+        Data_type: VARCHAR
+
+      - name: source_pr_id
+        description: Source PR id
+        Data_type: VARCHAR
+      
+      - name: source_pr_number
+        description: Source PR number
+        Data_type: VARCHAR
+
+      - name: title
+        description: Title of the PR
+        Data_type: VARCHAR
+
+      - name: current_state
+        description: Reecent state of the PR
+        Data_type: VARCHAR
+
+      - name: is_draft
+        description: Is this PR is Draft
+        Data_type: Bool
+
+      - name: source_author_id
+        description: Author of this PR
+        Data_type: VARCHAR
+
+      - name: source_assignee_id
+        description: Assignee of this PR
+        Data_type: VARCHAR
+
+      - name: pr_created_date
+        description: Date when PR is created
+        Data_type: DATETIME
+
+      - name: pr_updated_date
+        description: Date when PR is updated
+        Data_type: DATETIME
+      
+      - name: pr_merged_date
+        description: Date when PR is updated
+        Data_type: DATETIME
+      
+      - name: merge_commit_sha
+        description: Merge commit hash 
+        Data_type: VARCHAR
+      
+      - name: pr_closed_at
+        description: Date when PR is updated
+        Data_type: DATETIME
+
+      - name: source_closed_by_user_id
+        description: User ID if this PR is closed
+        Data_type: VARCHAR
+
+      - name: _load_date
+        description: Audit field used to identify when records in loaded in DWH
+        Data_type: DATETIME
+
+      - name: _ingest_timestamp
+        description: Source Ingestion datetime
+        Data_type: DATETIME            

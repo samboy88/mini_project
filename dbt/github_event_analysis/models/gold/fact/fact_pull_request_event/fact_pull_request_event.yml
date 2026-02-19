@@ -1,0 +1,47 @@
+---
+models:
+  - name: fact_pull_request_event
+    desription: Table has list of events happened for each Pull requests
+    columns:
+      - name: event_id
+        description: Surrogate Key of the events
+        Data_type: VARCHAR
+        tests:
+         - not_null
+         - unique
+
+      - name: pull_request_id
+        description: Foriegn key of Dimension dim_pull_request
+        Data_type: VARCHAR
+
+      - name: user_id
+        description: Foriegn key of Dimension dim_user
+        Data_type: VARCHAR
+      
+      - name: repo_id
+        description: Foriegn key of Dimension dim_repo
+        Data_type: VARCHAR
+
+      - name: source_event_id
+        description: Source event ID
+        Data_type: VARCHAR
+
+      - name: event_type
+        description: EVent type
+        Data_type: VARCHAR
+
+      - name: source_issue_number
+        description: Source Issue number if any
+        Data_type: VARCHAR
+
+      - name: action
+        description: Action happened in this event
+        Data_type: VARCHAR
+
+      - name: _load_date
+        description: Audit field used to identify when records in loaded in DWH
+        Data_type: DATETIME
+
+      - name: _ingest_timestamp
+        description: Source Ingestion datetime
+        Data_type: DATETIME            
