@@ -15,7 +15,7 @@ SELECT
     updated_at                              AS pr_updated_date,
     merged_at                               AS pr_merged_date,
     merge_commit_sha                        AS merge_commit_sha,
-    closed_at                               AS pr_closed_at,
+    closed_at                               AS pr_closed_date,
     closed_by                               AS source_closed_by_user_id,
     CURRENT_TIMESTAMP                       AS _load_date,
     _ingest_timestamp                       AS _ingest_timestamp

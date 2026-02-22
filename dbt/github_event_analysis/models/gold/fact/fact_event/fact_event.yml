@@ -1,6 +1,6 @@
 ---
 models:
-  - name: fact_pull_request_event
+  - name: fact_event
     desription: Table has list of events happened for each Pull requests
     columns:
       - name: event_id

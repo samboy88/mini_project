@@ -53,7 +53,7 @@ models:
       
       - name: closed_by
         description: User who closed this PR
-        Data_type: DATETIME
+        Data_type: VARCHAR
 
       - name: created_at
         description: Date when event is created
