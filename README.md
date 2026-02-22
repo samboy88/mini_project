@@ -75,11 +75,11 @@ Dimension table describing details of user.
 
 
 
-<img width="5928" height="4244" alt="image" src="https://github.com/user-attachments/assets/828b377a-da86-4d92-afe9-337b97332058" />
+<img width="5928" height="4244" alt="image" src="https://github.com/user-attachments/assets/d47c2d92-75fd-4e71-84d1-497b318b7d7d" />
 
 
 ## Dataflow Architecture
 
-<img width="6524" height="3204" alt="image" src="https://github.com/user-attachments/assets/b5ec2829-5a47-4d4d-ba3d-6e582b29ff72" />
+<img width="6528" height="3204" alt="image" src="https://github.com/user-attachments/assets/3213a107-8f96-4432-850a-24c885610ac7" />
 
 
