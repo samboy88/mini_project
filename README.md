@@ -25,7 +25,6 @@ This project analyzes GitHub event data using a modern data stack. It leverages 
    ```
 3. Access Airflow UI at [http://localhost:8080](http://localhost:8080)
 4. Access MySQL at [localhost:3306](localhost:3306)
-5. create MYSQL database and user for storing DWH.Here I used Database: github_event_analysis with user: samboy_88:awesome_person
 
 ### dbt Usage
 1. Open docker 
