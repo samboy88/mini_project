@@ -58,8 +58,11 @@ This project analyzes GitHub event data using a modern data stack. It leverages 
 ## Database Model
 The dbt project builds structured tables from raw GitHub event data. Typical layers:
 
+### `fact_pull_request_event`
+Fact table capturing normalized events occurring in the repository, with each row representing a single event.
+
 ### `dim_event_type`
-Dimension table describing event types.
+Dimension table describing event types. Github events like Pulls,Issues,CreateEvent,PullRequestEvent,PullRequestReview,Pulle
 
 ### `dim_pull_request`
 Dimension table describing details of Pull request.
@@ -70,8 +73,7 @@ Dimension table describing details of repository.
 ### `dim_user`
 Dimension table describing details of user.
 
-### `fact_pull_request_event`
-Fact table capturing normalized events happening in repository.
+
 
 <img width="5928" height="4244" alt="image" src="https://github.com/user-attachments/assets/828b377a-da86-4d92-afe9-337b97332058" />
 
