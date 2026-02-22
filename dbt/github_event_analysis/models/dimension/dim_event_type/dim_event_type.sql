@@ -1,4 +1,4 @@
-{{ config(materialized='table') }}
+{{ config(materialized='incremental', unique_key='event_type_id') }}
 
 select 
     MD5(CONCAT(CONVERT(type , CHAR)  ) )              AS event_type_id,

@@ -1,4 +1,4 @@
-{{ config(materialized='table', unique_key='id') }}
+{{ config(materialized='incremental', unique_key='id') }}
 
 SELECT 
     repo,

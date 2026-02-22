@@ -1,6 +1,7 @@
-{{ config(materialized='table', unique_key='id') }}
+{{ config(materialized='incremental', unique_key='id') }}
 
 SELECT 
+    DISTINCT
     repo,
     JSON_UNQUOTE(JSON_EXTRACT(raw_payload, '$.id'))                                                                     as ID,
     JSON_UNQUOTE(JSON_EXTRACT(raw_payload, '$.type'))                                                                   as type,

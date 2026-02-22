@@ -1,4 +1,4 @@
-{{ config(materialized='table', unique_key='pull_request_id') }}
+{{ config(materialized='incremental', unique_key='pull_request_id') }}
 
 SELECT 
    MD5(CONCAT(CONVERT(repo , CHAR), '~',

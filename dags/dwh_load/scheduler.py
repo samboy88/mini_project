@@ -32,12 +32,12 @@ with DAG(
 
     dbt_run_dim = BashOperator(
         task_id="dbt_run_dim",
-        bash_command=f"cd {DBT_DIR} && dbt run --select dim"
+        bash_command=f"cd {DBT_DIR} && dbt run --select dimension"
     )
 
     dbt_test_dim = BashOperator(
         task_id="dbt_test_dim",
-        bash_command=f"cd {DBT_DIR} && dbt test --select dim"
+        bash_command=f"cd {DBT_DIR} && dbt test --select dimension"
     )
 
 
@@ -51,7 +51,12 @@ with DAG(
         bash_command=f"cd {DBT_DIR} && dbt test --select fact"
     )
 
+    dbt_run_semantic_layer = BashOperator(
+        task_id="dbt_run_semantic_layer",
+        bash_command=f"cd {DBT_DIR} && dbt run --select semantic_layer"
+    )
+
 
     start >> dbt_run_silver >> dbt_test_silver
     dbt_test_silver >> dbt_run_dim >> dbt_test_dim
-    dbt_test_dim >> dbt_run_fact >> dbt_test_fact >> end
+    dbt_test_dim >> dbt_run_fact >> dbt_test_fact >> dbt_run_semantic_layer >>end
