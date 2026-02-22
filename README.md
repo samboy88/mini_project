@@ -24,7 +24,7 @@ This project analyzes GitHub event data using a modern data stack. It leverages 
    docker-compose up --build
    ```
 3. Access Airflow UI at [http://localhost:8080](http://localhost:8080)
-4. Access MySQL at [localhost:3306](localhost:3306)
+4. Access MySQL at [localhost:3306](localhost:3306) --> Check config for access to DWH-DB github_event_analysis
 
 ### dbt Usage
 1. Open docker 
