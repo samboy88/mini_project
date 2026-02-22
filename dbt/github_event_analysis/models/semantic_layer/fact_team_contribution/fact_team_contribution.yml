@@ -1,0 +1,7 @@
+version: 2
+
+models:
+  - name: fact_team_contribution
+    description: |
+      Fact table providing analytics on pull request performance and lifetime, including event counts, PR duration, and user/repo details.
+    
