@@ -62,16 +62,16 @@ The dbt project builds structured tables from raw GitHub event data. Typical lay
 Fact table capturing normalized events occurring in the repository, with each row representing a single event.
 
 ### `dim_event_type`
-Dimension table describing event types. Github events like Pulls,Issues,CreateEvent,PullRequestEvent,PullRequestReview,Pulle
+Dimension table describing event types. Github events like Pulls,Issues,CreateEvent,PullRequestEvent,PullRequestReview,pull_request_review_comment,issue_comment etc.
 
 ### `dim_pull_request`
-Dimension table describing details of Pull request.
+Dimension table describing details of Pull request. It is at grain of PRs. It captures granular level of details
 
 ### `dim_repo`
-Dimension table describing details of repository.
+Dimension table describing details of repository like repo_name.
 
 ### `dim_user`
-Dimension table describing details of user.
+Dimension table describing details of user like userlogin .
 
 
 
