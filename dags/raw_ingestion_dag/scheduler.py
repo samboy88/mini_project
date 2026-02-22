@@ -1,12 +1,10 @@
 from airflow import DAG
 from airflow.operators.python import PythonOperator
-from datetime import datetime
-import time
+import time 
 from datetime import datetime
 from sqlalchemy import create_engine, Table, Column, MetaData, String, DateTime, JSON
 from sqlalchemy.dialects.postgresql import insert
 import requests
-import os
 
 
 def github_get(url, GITHUB_TOKEN,params=None):
@@ -57,20 +55,19 @@ def ingest_raw_core(owner, repo, events_list,DB_URL,GITHUB_TOKEN,pages=10, per_p
                 print(f"Retrieved page {page} for {endpoint} ({len(data)} total items)")
 
 def run_ingestion():
-    # CONFIGURATION
-    REPO_OWNER = "pallets"
+    # CONFIGURATION - In real project, these can be automated and parameterized
+    REPO_OWNER = "pallets" 
     REPO_NAME = "flask"
-    GITHUB_TOKEN = "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"
-    DB_URL = "mysql+mysqlconnector://samboy_88:awesome_person@mysql:3306/github_event_analysis"
-    EVENTS= ["events","pulls","commits","issues","comments"]
-    #EVENTS= ["events"]
+    GITHUB_TOKEN = "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" #Added for fetching historical data, but should be rotated/removed for security best practices. Consider using Airflow Variables or Secrets Manager for production use.
+    DB_URL = "mysql+mysqlconnector://samboy_88:awesome_person@mysql:3306/github_event_analysis" # update with your actual DB credentials
+    EVENTS= ["events","pulls","commits","issues","comments"] # we can add more endpoints here as needed
     ingest_raw_core(REPO_OWNER, REPO_NAME, EVENTS,DB_URL,GITHUB_TOKEN,pages=100)
 
 
 with DAG(
     dag_id="raw_ingestion_dag",
     start_date=datetime(2024, 1, 1),
-    schedule_interval="@daily",
+    schedule_interval="@daily", 
     catchup=False,
 ):
     ingest_raw = PythonOperator( 

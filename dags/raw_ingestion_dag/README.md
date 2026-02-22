@@ -24,26 +24,8 @@ The ingestion process creates and populates a table named `raw_core_events` in t
 
 This table acts as the landing zone for all raw event data, supporting downstream transformations and analytics.
 
-## Dataflow Architecture
-
-```mermaid
-graph TD
-	A[GitHub API] --> B[Airflow DAG (scheduler.py)]
-	B --> C[MySQL: raw_core_events]
-	C --> D[dbt Transformations]
-	D --> E[Data Warehouse Models]
-```
-
-- **A:** Data is fetched from the GitHub API for specified repositories and event types.
-- **B:** Airflow DAG orchestrates the extraction and loads data into MySQL.
-- **C:** Raw data is stored in the `raw_core_events` table.
-- **D:** dbt transforms raw data into structured models (bronze, silver, gold layers).
-- **E:** Final models are used for analytics and reporting.
 
 ## Best Practices
 - Use environment variables or Airflow secrets for sensitive credentials (e.g., GitHub token).
 - Monitor DAG execution and logs via Airflow UI.
 - Test ingestion and transformations before production deployment.
-
-## Contact
-For questions or improvements, contact the project maintainer or open an issue in the main repository.
