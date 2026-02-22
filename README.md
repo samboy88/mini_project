@@ -73,7 +73,7 @@ Dimension table describing details of user.
 ### `fact_pull_request_event`
 Fact table capturing normalized events happening in repository.
 
-<img width="6528" height="3204" alt="image" src="https://github.com/user-attachments/assets/c5b26d35-f604-4742-9f8a-4882d455410e" />
+<img width="5928" height="4244" alt="image" src="https://github.com/user-attachments/assets/828b377a-da86-4d92-afe9-337b97332058" />
 
 
 ## Dataflow Architecture
