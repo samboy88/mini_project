@@ -59,39 +59,22 @@ This project analyzes GitHub event data using a modern data stack. It leverages 
 The dbt project builds structured tables from raw GitHub event data. Typical layers:
 
 ### `dim_event_type`
-Dimension table describing event types, used for analysis and reporting.
+Dimension table describing event types.
 
 ### `dim_pull_request`
-Dimension table describing event types, used for analysis and reporting.
+Dimension table describing details of Pull request.
 
 ### `dim_repo`
-Dimension table describing event types, used for analysis and reporting.
+Dimension table describing details of repository.
 
 ### `dim_user`
-Dimension table describing event types, used for analysis and reporting.
+Dimension table describing details of user.
 
 ### `fact_pull_request_event`
-Dimension table describing event types, used for analysis and reporting.
+Fact table capturing normalized events happening in repository.
 
 <img width="5924" height="4244" alt="image" src="https://github.com/user-attachments/assets/f1b88329-8758-4485-90a5-096666796ea3" />
 
 ## Dataflow Architecture
 
-```mermaid
-graph TD
-	 A[GitHub API] --> B[Airflow DAG]
-	 B --> C[MySQL: raw_core_events]
-	 C --> D[dbt Bronze Models]
-	 D --> E[dbt Silver Models]
-	 E --> F[dbt Gold Models]
-	 F --> G[Analytics/Reporting]
-```
-
-- **A:** Data is fetched from GitHub API.
-- **B:** Airflow orchestrates ingestion into MySQL.
-- **C:** Raw data stored in `raw_core_events`.
-- **D:** dbt bronze models stage raw data.
-- **E:** dbt silver models clean and transform.
-- **F:** dbt gold models provide analytics-ready tables.
-- **G:** Data is used for dashboards, reports, and insights.
 
