@@ -3,7 +3,7 @@
 SELECT user_id,
        user_login,
        count_of_contributions
-FROM fact_team_contribution
+FROM fact_user_contribution
 ORDER BY count_of_contributions DESC
 LIMIT 10;
 
@@ -13,7 +13,7 @@ LIMIT 10;
 SELECT user_id,
        user_login,
        count_of_pull_requests_contributed_to
-FROM fact_team_contribution
+FROM fact_user_contribution
 ORDER BY count_of_pull_requests_contributed_to DESC
 LIMIT 10;
 
