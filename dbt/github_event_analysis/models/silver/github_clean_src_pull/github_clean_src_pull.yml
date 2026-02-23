@@ -9,7 +9,10 @@ models:
 
       - name: ID
         description: Source ID of events
-        Data_type: VARCHAR
+        Data_type: VARCHAR        
+        tests:
+          - not_null
+          - unique
 
       - name: state
         description: state of PR
