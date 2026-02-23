@@ -1,0 +1,15 @@
+---
+models:
+  - name: dim_event_type
+    description: Table has list of event types in a repository
+    columns:
+      - name: event_type_id
+        description: Surrogate Key of the event type
+        Data_type: VARCHAR
+        tests:
+          - not_null
+          - unique
+
+      - name: event_type
+        description: Type of the event
+        Data_type: VARCHAR
