@@ -4,6 +4,7 @@ from airflow.operators.empty import EmptyOperator
 from datetime import datetime
 import time
 from datetime import datetime
+from airflow.sensors.external_task import ExternalTaskSensor
 
 import os
 
@@ -18,8 +19,7 @@ with DAG(
 ):
     start = EmptyOperator(task_id="start")
     end = EmptyOperator(task_id="end")
-
-
+    
     dbt_run_silver = BashOperator(
         task_id="dbt_run_silver",
         bash_command=f"cd {DBT_DIR} && dbt run --select silver"

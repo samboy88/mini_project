@@ -10,7 +10,7 @@ import requests
 def github_get(url, GITHUB_TOKEN,params=None):
     headers = {"Accept": "application/vnd.github+json"}
     if GITHUB_TOKEN:
-        headers["Authorization"] = f"Bearer {GITHUB_TOKEN}"
+        headers["Authorization"] = f"token {GITHUB_TOKEN}"
     resp = requests.get(url, headers=headers, params=params)
     resp.raise_for_status()
     return resp.json()
@@ -32,12 +32,18 @@ def ingest_raw_core(owner, repo, events_list,DB_URL,GITHUB_TOKEN,pages=10, per_p
     repo_full = f"{owner}/{repo}"
     ingest_timestamp_now=datetime.now()
     with engine.begin() as conn:
+        # Get last ingestion timestamp
+        last_ts = conn.execute("SELECT MAX(ingest_timestamp) FROM raw_core_events").scalar()
         for endpoint in events_list:
             url = f"https://api.github.com/repos/{owner}/{repo}/{endpoint}"
             for page in range(1, pages + 1):
                 if endpoint == "events" and page > 3:
                     break
                 params = {"page": page, "per_page": per_page, "state": "all"}
+                
+                if last_ts:
+                    params["since"] = last_ts.isoformat() + "Z"
+
                 data = github_get(url, GITHUB_TOKEN,params=params)
                 if not data:
                     break  
@@ -58,7 +64,7 @@ def run_ingestion():
     # CONFIGURATION - In real project, these can be automated and parameterized
     REPO_OWNER = "pallets" 
     REPO_NAME = "flask"
-    GITHUB_TOKEN = "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" #Added for fetching historical data, but should be rotated/removed for security best practices. Consider using Airflow Variables or Secrets Manager for production use.
+    GITHUB_TOKEN = "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" #Added for fetching historical data, but should be rotated/removed for security best practices. Consider using Airflow Variables or Secrets Manager for production use.
     DB_URL = "mysql+mysqlconnector://samboy_88:awesome_person@mysql:3306/github_event_analysis" # update with your actual DB credentials
     EVENTS= ["events","pulls","commits","issues","comments"] # we can add more endpoints here as needed
     ingest_raw_core(REPO_OWNER, REPO_NAME, EVENTS,DB_URL,GITHUB_TOKEN,pages=100)
