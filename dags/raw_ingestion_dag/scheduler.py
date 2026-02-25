@@ -64,7 +64,7 @@ def run_ingestion():
     # CONFIGURATION - In real project, these can be automated and parameterized
     REPO_OWNER = "pallets" 
     REPO_NAME = "flask"
-    GITHUB_TOKEN = "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" #Added for fetching historical data, but should be rotated/removed for security best practices. Consider using Airflow Variables or Secrets Manager for production use.
+    GITHUB_TOKEN = "" #Added for fetching historical data, but should be rotated/removed for security best practices. Consider using Airflow Variables or Secrets Manager for production use.
     DB_URL = "mysql+mysqlconnector://samboy_88:awesome_person@mysql:3306/github_event_analysis" # update with your actual DB credentials
     EVENTS= ["events","pulls","commits","issues","comments"] # we can add more endpoints here as needed
     ingest_raw_core(REPO_OWNER, REPO_NAME, EVENTS,DB_URL,GITHUB_TOKEN,pages=100)
